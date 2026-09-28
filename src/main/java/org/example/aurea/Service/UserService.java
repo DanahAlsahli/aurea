@@ -13,22 +13,18 @@ public class UserService {
 
     private final UserRepository userRepository;
 
-    // Create
     public void addUser(User user) {
         userRepository.save(user);
     }
 
-    // Read All
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
 
-    // Read One
     public User getUserById(Integer id) {
         return userRepository.findById(id).orElse(null);
     }
 
-    // Update
     public boolean updateUser(Integer id, User user) {
 
         User oldUser = userRepository.findById(id).orElse(null);
@@ -46,7 +42,6 @@ public class UserService {
         return true;
     }
 
-    // Delete
     public boolean deleteUser(Integer id) {
 
         User user = userRepository.findById(id).orElse(null);

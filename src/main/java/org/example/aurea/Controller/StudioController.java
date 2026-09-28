@@ -15,21 +15,18 @@ public class StudioController {
         this.studioService = studioService;
     }
 
-    // Create
     @PostMapping("/add")
     public ResponseEntity<?> addStudio(@RequestBody Studio studio) {
         return ResponseEntity.status(201)
                 .body(studioService.addStudio(studio));
     }
 
-    // Read All
     @GetMapping("/get")
     public ResponseEntity<?> getAllStudios() {
         return ResponseEntity.status(200)
                 .body(studioService.getAllStudios());
     }
 
-    // Read By ID
     @GetMapping("/get/{id}")
     public ResponseEntity<?> getStudioById(@PathVariable Integer id) {
 
@@ -43,7 +40,6 @@ public class StudioController {
         return ResponseEntity.status(200).body(studio);
     }
 
-    // Update
     @PutMapping("/update/{id}")
     public ResponseEntity<?> updateStudio(
             @PathVariable Integer id,
@@ -60,7 +56,6 @@ public class StudioController {
                 .body("Studio updated successfully");
     }
 
-    // Delete
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteStudio(@PathVariable Integer id) {
 

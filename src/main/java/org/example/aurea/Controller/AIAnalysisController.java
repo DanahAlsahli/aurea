@@ -15,21 +15,18 @@ public class AIAnalysisController {
         this.aiAnalysisService = aiAnalysisService;
     }
 
-    // Create
     @PostMapping("/add")
     public ResponseEntity<?> addAnalysis(@RequestBody AIAnalysis analysis) {
         return ResponseEntity.status(201)
                 .body(aiAnalysisService.addAnalysis(analysis));
     }
 
-    // Read All
     @GetMapping("/get")
     public ResponseEntity<?> getAllAnalyses() {
         return ResponseEntity.status(200)
                 .body(aiAnalysisService.getAllAnalyses());
     }
 
-    // Read By ID
     @GetMapping("/get/{id}")
     public ResponseEntity<?> getAnalysisById(@PathVariable Integer id) {
 
@@ -43,7 +40,6 @@ public class AIAnalysisController {
         return ResponseEntity.status(200).body(analysis);
     }
 
-    // Update
     @PutMapping("/update/{id}")
     public ResponseEntity<?> updateAnalysis(
             @PathVariable Integer id,
@@ -61,7 +57,6 @@ public class AIAnalysisController {
                 .body("AI Analysis updated successfully");
     }
 
-    // Delete
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteAnalysis(@PathVariable Integer id) {
 

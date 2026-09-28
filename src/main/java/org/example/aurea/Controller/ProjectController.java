@@ -17,19 +17,16 @@ public class ProjectController {
         this.projectService = projectService;
     }
 
-    // Create
     @PostMapping("/add")
     public ResponseEntity<?> addProject(@RequestBody Project project) {
         return ResponseEntity.status(201).body(projectService.addProject(project));
     }
 
-    // Read All
     @GetMapping("/get")
     public ResponseEntity<?> getAllProjects() {
         return ResponseEntity.status(200).body(projectService.getAllProjects());
     }
 
-    // Read By ID
     @GetMapping("/get/{id}")
     public ResponseEntity<?> getProjectById(@PathVariable Integer id) {
 
@@ -42,7 +39,6 @@ public class ProjectController {
         return ResponseEntity.status(200).body(project);
     }
 
-    // Update
     @PutMapping("/update/{id}")
     public ResponseEntity<?> updateProject(
             @PathVariable Integer id,
@@ -57,7 +53,6 @@ public class ProjectController {
         return ResponseEntity.status(200).body("Project updated successfully");
     }
 
-    // Delete
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteProject(@PathVariable Integer id) {
 

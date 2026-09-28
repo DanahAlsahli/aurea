@@ -34,30 +34,18 @@ public class AIAnalysisService {
         this.objectMapper = new ObjectMapper();
     }
 
-    // =========================
-    // Create
-    // =========================
     public AIAnalysis addAnalysis(AIAnalysis analysis) {
         return aiAnalysisRepository.save(analysis);
     }
 
-    // =========================
-    // Read All
-    // =========================
     public List<AIAnalysis> getAllAnalyses() {
         return aiAnalysisRepository.findAll();
     }
 
-    // =========================
-    // Read By ID
-    // =========================
     public AIAnalysis getAnalysisById(Integer id) {
         return aiAnalysisRepository.findById(id).orElse(null);
     }
 
-    // =========================
-    // Update
-    // =========================
     public boolean updateAnalysis(Integer id, AIAnalysis analysis) {
 
         AIAnalysis existingAnalysis =
@@ -82,9 +70,6 @@ public class AIAnalysisService {
         return true;
     }
 
-    // =========================
-    // Delete
-    // =========================
     public boolean deleteAnalysis(Integer id) {
 
         AIAnalysis existingAnalysis =
@@ -99,9 +84,6 @@ public class AIAnalysisService {
         return true;
     }
 
-    // =========================
-    // AI Project Analysis
-    // =========================
     public AIAnalysis analyzeProject(Integer projectId) {
 
         // 1. Get project from database

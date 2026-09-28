@@ -15,22 +15,18 @@ public class RecommendationService {
         this.recommendationRepository = recommendationRepository;
     }
 
-    // Create
     public Recommendation addRecommendation(Recommendation recommendation) {
         return recommendationRepository.save(recommendation);
     }
 
-    // Read All
     public List<Recommendation> getAllRecommendations() {
         return recommendationRepository.findAll();
     }
 
-    // Read By ID
     public Recommendation getRecommendationById(Integer id) {
         return recommendationRepository.findById(id).orElse(null);
     }
 
-    // Update
     public boolean updateRecommendation(
             Integer id,
             Recommendation newRecommendation) {
@@ -53,7 +49,6 @@ public class RecommendationService {
         return true;
     }
 
-    // Delete
     public boolean deleteRecommendation(Integer id) {
 
         Recommendation existing =

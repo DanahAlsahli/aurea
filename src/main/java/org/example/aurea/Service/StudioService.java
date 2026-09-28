@@ -15,22 +15,18 @@ public class StudioService {
         this.studioRepository = studioRepository;
     }
 
-    // Create
     public Studio addStudio(Studio studio) {
         return studioRepository.save(studio);
     }
 
-    // Read All
     public List<Studio> getAllStudios() {
         return studioRepository.findAll();
     }
 
-    // Read By ID
     public Studio getStudioById(Integer id) {
         return studioRepository.findById(id).orElse(null);
     }
 
-    // Update
     public boolean updateStudio(Integer id, Studio studio) {
 
         Studio existingStudio = studioRepository.findById(id).orElse(null);
@@ -48,7 +44,6 @@ public class StudioService {
         return true;
     }
 
-    // Delete
     public boolean deleteStudio(Integer id) {
 
         Studio existingStudio = studioRepository.findById(id).orElse(null);
