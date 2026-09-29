@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "ai_analysis")
@@ -34,4 +35,17 @@ public class AIAnalysis {
 
     @Column(columnDefinition = "TEXT")
     private String aiRecommendation;
+
+    @Column(nullable = false)
+    private LocalDateTime createdAt;
+
+    private String riskLevel;
+
+    private Integer confidence;
+
+    @Column(columnDefinition = "TEXT")
+    private String keyDriver;
+
+    @Column(columnDefinition = "TEXT")
+    private String expectedOutcome;
 }

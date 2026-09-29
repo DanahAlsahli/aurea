@@ -21,17 +21,24 @@ public class Recommendation {
 
     private String status;
 
+    private String impact;
+
+    private String effort;
+
+    private Integer progress;
+
     public Recommendation() {
     }
 
-    public Recommendation(Integer analysisId, String title,
-                          String description, String priority,
-                          String status) {
+    public Recommendation(Integer analysisId, String title, String description, String priority, String status, String impact, String effort, Integer progress) {
         this.analysisId = analysisId;
         this.title = title;
         this.description = description;
         this.priority = priority;
         this.status = status;
+        this.impact = impact;
+        this.effort = effort;
+        this.progress = progress;
     }
 
     public Integer getId() {
@@ -76,5 +83,28 @@ public class Recommendation {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+    public String getImpact() {
+        return impact;
+    }
+
+    public void setImpact(String impact) {
+        this.impact = impact;
+    }
+
+    public String getEffort() {
+        return effort;
+    }
+
+    public void setEffort(String effort) {
+        this.effort = effort;
+    }
+
+    public Integer getProgress() {
+        return progress;
+    }
+
+    public void setProgress(Integer progress) {
+        this.progress = progress;
     }
 }

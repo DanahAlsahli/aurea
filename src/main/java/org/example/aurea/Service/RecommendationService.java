@@ -27,12 +27,9 @@ public class RecommendationService {
         return recommendationRepository.findById(id).orElse(null);
     }
 
-    public boolean updateRecommendation(
-            Integer id,
-            Recommendation newRecommendation) {
+    public boolean updateRecommendation(Integer id, Recommendation newRecommendation) {
 
-        Recommendation existing =
-                recommendationRepository.findById(id).orElse(null);
+        Recommendation existing = recommendationRepository.findById(id).orElse(null);
 
         if (existing == null) {
             return false;
@@ -43,6 +40,9 @@ public class RecommendationService {
         existing.setDescription(newRecommendation.getDescription());
         existing.setPriority(newRecommendation.getPriority());
         existing.setStatus(newRecommendation.getStatus());
+        existing.setImpact(newRecommendation.getImpact());
+        existing.setEffort(newRecommendation.getEffort());
+        existing.setProgress(newRecommendation.getProgress());
 
         recommendationRepository.save(existing);
 
@@ -61,5 +61,50 @@ public class RecommendationService {
         recommendationRepository.delete(existing);
 
         return true;
+    }
+
+    public List<Recommendation> getRecommendationsByAnalysis(
+            Integer analysisId) {
+
+        return recommendationRepository.findByAnalysisId(analysisId);
+    }
+
+    public List<Recommendation> getRecommendationsByPriority(
+            Integer analysisId,
+            String priority) {
+
+        return recommendationRepository
+                .findByAnalysisIdAndPriority(analysisId, priority);
+    }
+
+    public List<Recommendation> getRecommendationsByStatus(
+            Integer analysisId,
+            String status) {
+
+        return recommendationRepository
+                .findByAnalysisIdAndStatus(
+                        analysisId,
+                        status
+                );
+    }
+
+    public List<Recommendation> getHighImpactRecommendations(
+            Integer analysisId) {
+
+        return recommendationRepository
+                .findByAnalysisIdAndImpact(
+                        analysisId,
+                        "HIGH"
+                );
+    }
+
+    public List<Recommendation> getIncompleteRecommendations(
+            Integer analysisId) {
+
+        return recommendationRepository
+                .findByAnalysisIdAndProgressLessThan(
+                        analysisId,
+                        100
+                );
     }
 }

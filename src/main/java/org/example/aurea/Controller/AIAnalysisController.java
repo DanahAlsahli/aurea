@@ -83,4 +83,32 @@ public class AIAnalysisController {
         return ResponseEntity.status(200)
                 .body(analysis);
     }
+
+    @PostMapping("/simulate/{projectId}")
+    public ResponseEntity<?> simulateProject(
+            @PathVariable Integer projectId,
+            @RequestBody String scenario) {
+
+        return ResponseEntity.status(200)
+                .body(aiAnalysisService.simulateProject(projectId, scenario));
+    }
+
+    @PostMapping("/decision-impact/{projectId}")
+    public ResponseEntity<?> decisionImpact(
+            @PathVariable Integer projectId,
+            @RequestBody String decision) {
+
+        return ResponseEntity.status(200)
+                .body(aiAnalysisService.decisionImpact(projectId, decision));
+    }
+
+    @PostMapping("/action-plan/{projectId}")
+    public ResponseEntity<?> actionPlan(
+            @PathVariable Integer projectId) {
+
+        return ResponseEntity.status(200)
+                .body(aiAnalysisService.actionPlan(projectId));
+    }
+
+
 }
